@@ -1,12 +1,22 @@
+"use client";
+
 import React from "react";
 import { ThemeProvider as NextThemesProvider } from "next-themes";
+import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
+import AppSidebar from "./_component/appSidebar";
 
-function provider(children, ...props) {
+export default function Provider({ children, ...props }) {
   return (
-    <NextThemesProvider {...props}>
-      <div>{children}</div>
+    <NextThemesProvider attribute="class" {...props}>
+      <SidebarProvider>
+        <div className="flex">
+          <AppSidebar />
+          <main className="flex-1 p-4">
+            <SidebarTrigger />
+            {children}
+          </main>
+        </div>
+      </SidebarProvider>
     </NextThemesProvider>
   );
 }
-
-export default provider;
