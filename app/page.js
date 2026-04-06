@@ -2,15 +2,13 @@
 import { Button } from "@/components/ui/button";
 import { useTheme } from "next-themes";
 import React from "react";
+import ChatInputBox from "./_component/chatInputBox";
 
 const page = () => {
   const { setTheme } = useTheme();
   return (
     <div>
-      <h1>Hello</h1>
-      <Button>click</Button>
-      <Button onClick={() => setTheme("light")}>Light mode</Button>
-      <Button onClick={() => setTheme("dark")}>Dark mode</Button>
+      <ChatInputBox />
     </div>
   );
 };
